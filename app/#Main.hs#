@@ -1,0 +1,24 @@
+module Main where
+
+import Prelude hiding (div)
+
+import Purview 
+import Purview.Server
+
+
+view :: String -> Purview () m
+view "/home" = h1 [ text "Hello from home page" ]
+view "/" = div [ h1 [ text "Start page" ] 
+               , p [ text "ToDo: make a router for this"] ]
+view _ = h1 [ text "404 Page not found"]
+
+main = serve defaultConfiguration view
+
+
+-- look in documentation about how a component works
+-- 
+-- data CounterEvent = CounterIncrement | CounterDecrement
+-- updateCounter :: CounterEvent -> 
+
+-- counter :: Purview CounterEvent m
+-- counter
